@@ -1,13 +1,14 @@
 from pathlib import Path
 
-data = Path('./d2data.txt')
+data = Path("./d2data.txt")
+
 
 def puzzle_one() -> None:
-    """ The code solution for Advent of Code 2023 Day 2 Puzzle 1
-    
+    """The code solution for Advent of Code 2023 Day 2 Puzzle 1
+
     Args:
         None
-    
+
     Returns:
         None
     """
@@ -21,7 +22,7 @@ def puzzle_one() -> None:
         game_id = colon_split[0]
         break_flag = False
         for pull in colon_split[1].split(";"):
-            color_cnt = pull.strip().split(',')
+            color_cnt = pull.strip().split(",")
             for color in color_cnt:
                 for key in color_dict:
                     if key in color:
@@ -34,11 +35,11 @@ def puzzle_one() -> None:
 
 
 def puzzle_two() -> None:
-    """ The code solution for Advent of Code 2023 Day 2 Puzzle 2
-    
+    """The code solution for Advent of Code 2023 Day 2 Puzzle 2
+
     Args:
         None
-    
+
     Returns:
         None
     """
@@ -47,33 +48,38 @@ def puzzle_two() -> None:
     total = 0
     for line in game_data:
         red, blue, green = 0, 0, 0
-        pulls = line.split(":")[1].split(';')
+        pulls = line.split(":")[1].split(";")
         for pull in pulls:
-            color_cnt = pull.strip().split(',')
+            color_cnt = pull.strip().split(",")
             for color in color_cnt:
                 if "red" in color:
                     t_col = int(color.replace(" red", ""))
-                    if t_col > red: red = t_col
+                    if t_col > red:
+                        red = t_col
                 elif "blue" in color:
                     t_col = int(color.replace(" blue", ""))
-                    if t_col > blue: blue = t_col
+                    if t_col > blue:
+                        blue = t_col
                 else:
                     t_col = int(color.replace(" green", ""))
-                    if t_col > green: green = t_col
-        total += (red * blue* green)
+                    if t_col > green:
+                        green = t_col
+        total += red * blue * green
     print(total)
 
+
 def main() -> None:
-    """ The main method
-    
+    """The main method
+
     Args:
         None
-    
+
     Returns:
         None
     """
     puzzle_one()
     puzzle_two()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
