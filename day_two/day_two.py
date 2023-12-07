@@ -25,7 +25,7 @@ for line in game_data:
                 t_col = int(color.replace(" blue", ""))
                 if t_col > blue: blue = t_col
             else:
-                t_col = int(color.replace(" green", ""))
+                t_col = int(color.replace(" green", "")); 
                 if t_col > green: green = t_col
     total += red * blue * green
 print(f'Puzzle Two total {total}')
