@@ -11,9 +11,11 @@ for line in l:
         if char.isnumeric():
             num_string+=char
             col_back, col_front, row_back, row_front = col-1, col+1, row-1, row+1
-            perms = set(permutations([row_back, row, row_front, col_back, col, col_front ],2))
+            perms = set(permutations([
+                row_back, row, row_front, col_back, col, col_front],2))
             perms = [x for x in perms if x[0] >=0 and x[1] >= 0]
-            perms = [x for x in perms if col_back <= x[1] <= col_front and row_back <= x[0] <= row_front]
+            perms = [x for x in perms if col_back <= x[1] <= col_front and row_back <= x[
+                0] <= row_front]
             perms = [x for x in perms if x != (row, col)]
             perms = [x for x in perms if x[0] < len(l) and x[1] < len(line)]
             for i in perms:
@@ -30,7 +32,6 @@ for line in l:
         col += 1
     row += 1
 print(total)
-
 row = 0
 total = 0
 for line in l:
@@ -39,9 +40,11 @@ for line in l:
         if char.isnumeric():
             num_string+=char
             col_back, col_front, row_back, row_front = col-1, col+1, row-1, row+1
-            perms = set(permutations([row_back, row, row_front, col_back, col, col_front ],2))
+            perms = set(permutations([row_back, row, row_front, col_back, col, col_front ],
+                                     2))
             perms = [x for x in perms if x[0] >=0 and x[1] >= 0]
-            perms = [x for x in perms if col_back <= x[1] <= col_front and row_back <= x[0] <= row_front]
+            perms = [x for x in perms if col_back <= x[1] <= col_front and row_back <= x[0]\
+                     <= row_front]
             perms = [x for x in perms if x != (row, col)]
             perms = [x for x in perms if x[0] < len(l) and x[1] < len(line)]
             for i in perms:
